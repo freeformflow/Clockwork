@@ -8,6 +8,6 @@ This app is intended to assist a business with scheduling employees.  The back-e
 Any auto-staffing algorithm must be able to respect employee skills, turn-around times, weekly work-hour constraints, and a fair balancing of hours among employees.
 
 
-Version 1 - A partially completed app built from JavaScript and PHP using a MySQL database.  
+Version 1 - A partially completed app built from JavaScript and PHP using a MySQL database.  It was designed with a specific business in mind, so it was more limited.  
 
-Version 2 - (Active Development) A newer and better version of the app, which using Ruby on Rails to replace the PHP code.  
+Version 2 - (Active Development) A newer and better version of the app that is intended to be useful to more businesses.  Also, its back-end is built from Ruby on Rails, replacing the PHP codebase.  
