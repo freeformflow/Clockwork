@@ -1,0 +1,77 @@
+<%= form_for(@standard_availability) do |f| %>
+  <% if @standard_availability.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@standard_availability.errors.count, "error") %> prohibited this standard_availability from being saved:</h2>
+
+      <ul>
+      <% @standard_availability.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :monday_start %><br>
+    <%= f.number_field :monday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :monday_end %><br>
+    <%= f.number_field :monday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :tuesday_start %><br>
+    <%= f.number_field :tuesday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :tuesday_end %><br>
+    <%= f.number_field :tuesday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :wednesday_start %><br>
+    <%= f.number_field :wednesday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :wednesday_end %><br>
+    <%= f.number_field :wednesday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :thursday_start %><br>
+    <%= f.number_field :thursday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :thursday_end %><br>
+    <%= f.number_field :thursday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :friday_start %><br>
+    <%= f.number_field :friday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :friday_end %><br>
+    <%= f.number_field :friday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :saturday_start %><br>
+    <%= f.number_field :saturday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :saturday_end %><br>
+    <%= f.number_field :saturday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :sunday_start %><br>
+    <%= f.number_field :sunday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :sunday_end %><br>
+    <%= f.number_field :sunday_end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

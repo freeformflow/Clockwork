@@ -1,0 +1,2 @@
+module StandardAvailabilitiesHelper
+end
