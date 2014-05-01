@@ -1,0 +1,89 @@
+<head>
+  <title>ClockWork</title>
+</head>
+
+<h1> ClockWork </h1>
+
+<ul id='menu_bar'>
+   <a href="/"> <li class='non_active_tab'> Main Menu </li> </a>
+  <li class='active_tab'> People </li>
+  <a href='/views/std_avail.erb'> <li class='non_active_tab'> Standard Availabilities </li> </a>
+  <li class='non_active_tab'> Skills </li>
+  <li class='non_active_tab'> ClockWork Scheduler </li>
+  <li class='non_active_tab'> Settings </li>
+  <li class='non_active_tab'> About </li>
+</ul>
+
+<br>
+
+<button type="button" onclick="ShowOverlay('add_person')"> Add Employee </button>
+<button type="button" onclick="ShowOverlay('delete_person')"> Delete Employee </button>
+
+<br>
+
+<table id='main_view'>
+  <thead>
+    <tr>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.last_name %></td>
+        <td><%= person.first_name %></td>
+        <td><%= person.email %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div id="fade"></div>
+
+<div id="add_person" class="overlay">
+  <h2> Add Employee </h2>
+  <p> Please enter information about this employee. </p>
+
+	<form method="POST" action='<%= people_path %>' >
+  	First Name: <input type="text" name="person[first_name]" id='add_first_name' maxlength="30"> <br>
+  	Last Name: <input type="text"  name="person[last_name]" id='add_last_name' maxlength="20"> <br>
+  	Email Address: <input type="email" name="person[email]" id='add_email' maxlenght="50"> <br>
+  	<input type="submit" value="Submit">
+  	<input type="button" onclick="HideOverlay('add_person')" value="Cancel">
+	</form>
+
+</div>
+
+
+<div id="delete_person" class="overlay">
+  <h2> Delete Employee </h2>
+  <p> Please select the employee for deletion. </p>
+
+  <form method="DELETE" action='<%= person_path %>'>
+    Employee Name: <select id="select_box_delete"> </select> <br>
+    <input type="submit" value="Submit">
+    <input type="button" onclick="HideOverlay('delete_person')" value="Cancel">
+  </form>
+
+</div>
+
+
+<div id="edit_person" class="overlay">
+  <h2> Edit Employee Details </h2>
+  <p> Please edit information about this employee. </p>
+
+  First Name: <input type="text" id='edit_first_name' maxlength="30"> <br>
+  Last Name: <input type="text"  id='edit_last_name' maxlength="20"> <br>
+  Email Address: <input type="email" id='edit_email' maxlength="50"> <br>
+
+  <input type="button" onclick="MakeAjaxCall('PUT', 'edit_person')" value="Submit">
+  <input type="button" onclick="HideOverlay('edit_person')" value="Cancel">
+</div>
